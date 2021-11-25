@@ -96,9 +96,17 @@
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
 
+      class myError extends Error{
+        constructor(message){
+          super(message); 
+          this.name - "myError"
+        }
+      }
+
+
       try {
         if (firstNum === undefined || secondNum === undefined) {
-          throw new Error("No Input");
+          throw new myError("No Input");
         }
         output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
       }
